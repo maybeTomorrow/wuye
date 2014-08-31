@@ -1,0 +1,91 @@
+<#include "/layout/user-header.html" >
+    <div id="main-content">
+        <#include "left-nav.html">
+            <div class="right">
+                <h2><img src="img/title-style.png"/>销售管理</h2>
+
+                <div id="intro">
+
+                    <form method="get" action="user/fang"class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="query">Email address</label>
+                            <input type="text" class="form-control" name="query" id="query" placeholder="输入关键词">
+                        </div>
+                        <button type="submit" class="btn btn-default">查询</button>
+                    </form>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>小区名称</th>
+                            <th>楼宇名称</th>
+                            <th>门牌号</th>
+                            <th>合同编号</th>
+                            <th>业主姓名</th>
+                            <th>合同金额</th>
+                            <th>合同日期</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                第<select style="width: 80px;" class="form-group" id="page-select">
+                            </select> 页，共<span class="fang.totalRow">${fang.totalRow?if_exists}</span>条记录
+                                <script>setPager('${fang.pageNumber?if_exists}','${fang.totalPage?if_exists}');</script>
+                            </td>
+
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <#list fang.list as fang>
+                            <tr>
+                                <td>${fang.xqmc?if_exists}</td>
+                                <td>${fang.lymc?if_exists}</td>
+                                <td>${fang.mph?if_exists}</td>
+                                <td>${fang.htbh?if_exists}</td>
+                                <td>${fang.yzxm?if_exists}</td>
+                                <td>${fang.htje?if_exists}</td>
+                                <td>${fang.htrq?if_exists}</td>
+                                <td data="${fang.id}">
+                                    <button type="button" class="btn btn-success btn_view">查看</button>
+
+
+                                </td>
+                            </tr>
+                        </#list>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br class="clear"/>
+
+    </div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">查看</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;">
+                    <iframe id="frame_modal" src="" style="width: 100%;height: 100%;">
+                    </iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <script>
+        $(".btn_view").click(function(){
+            $("#frame_modal").attr("src","user/fang/view/"+$(this).parent().attr("data"));
+            $('#myModal').modal('show');
+        });
+    </script>
+    <#include "/layout/user-footer.html" >

@@ -1,0 +1,60 @@
+<#include "/layout/admin-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>编辑管理员</h2>
+
+                <div id="intro">
+                    <form class="form-control-static" role="form" method="post" id="edit_form" action="admin/renshi/update">
+                        <input type="hidden" name="renshi.id" value="${renshi.id}">
+
+                        <div class="form-group">
+                            <label class="" for="iw">编号</label>
+                            <input type="text" class="form-control" id="iw" placeholder="编号" name="renshi.no"
+                                   value="${renshi.no}">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ia">姓名</label>
+                            <input type="text" class="form-control" id="ia" placeholder="姓名" name="renshi.name"
+                                   value="${renshi.name}">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ic">联系方式</label>
+                            <input type="text" class="form-control" id="ic" placeholder="联系方式" name="renshi.phone"
+                                   value="${renshi.phone}">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ir">工作范围</label>
+                            <input type="text" class="form-control" id="ir" placeholder="工作范围" name="renshi.work"
+                                   value="${renshi.work}">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="id">职位</label>
+                            <input type="text" class="form-control" id="id" placeholder="职位" name="renshi.pos"
+                                   value="${renshi.pos}">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ie">绩效考核</label>
+                            <select  class="form-control" id="ie" name="renshi.adper" >
+                                <option value="无">无</option>
+                                <option value="优秀">优秀</option>
+                                <option value="良好">良好</option>
+                                <option value="合格">合格</option>
+                                <option value="差">差</option>
+                            </select>
+                        </div>
+
+                        <button type="button" id="update" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#update").click(function () {
+                    subform('#edit_form');
+                });
+                $('#ie option[value="${renshi.adper}"]').attr("selected",true);
+            </script>
+    </div>
+    <#include "/layout/admin-footer.html" >

@@ -1,0 +1,276 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    line-height: 1;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary {
+    display:block;
+}
+
+.clear{
+    clear: both;
+}
+
+#top-bg{
+    width: 100%;
+    background: #28CB8A;
+    height: 86px;
+    border-bottom: 1px solid #fb6c28;
+}
+#top-bg2{
+    border-bottom: 1px solid #d57246;
+}
+#top-content{
+    width: 970px;
+    height: 100%;
+    position: relative;
+    margin:auto;
+}
+#logo{
+    position: absolute;
+    background: url("../img/logo.png") no-repeat;
+    width: 250px;
+    height: 50px;
+    top: 17px;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+#menu{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    font-size: 12px;
+    color: white;
+}
+
+#menu a{
+    font-size: 12px;
+    color: white;
+    padding: 0 6px;
+    text-decoration: none;
+}
+
+#nav{
+    position: absolute;
+    top: 56px;
+    left: 0px;
+    z-index: 999;
+}
+#nav ul{
+    list-style: none;
+    border-bottom: 1px solid #0d6ba4;
+}
+
+#nav li{
+    float: left;
+    width: 87px;
+    height: 29px;
+    text-align: center;
+    vertical-align: 100%;
+    border:1px #9E8F22  solid;
+    border-bottom: none;
+    color: white;
+    background: url("../img/nav-bg.png") no-repeat;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+#nav .lvl2{
+    display: none;
+    background: #ffffff;
+    border: 1px #9E8F22 solid;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top:-3px;
+    left: -2px;
+}
+#nav .lvl2 li{
+    background: #28CB8A;
+    border: 1px #9E8F22 solid;
+}
+#nav .lvl2 li:hover{
+    background: white;
+    color: #5DAF1D;
+    font-weight: bold;
+}
+
+#nav li:hover >ul{
+    display: block;
+}
+
+#nav .curret,#nav li:hover{
+    background: white;
+    color: #5DAF1D;
+    font-weight: bold;
+
+}
+
+.linker li{
+    cursor: pointer;
+}
+
+
+#main-content{
+    width: 970px;
+    margin: 8px auto 0 auto;
+    position: relative;
+    min-height:500px;
+    height:auto !important;
+    height:500px;
+    overflow:visible;
+}
+#main-content .left{
+    width: 268px;
+    float: right;
+}
+#main-content  h2{
+    height: 33px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 34px;
+    background: url("../img/title-bg.png");
+    padding-left: 16px;
+}
+#main-content h2  img{
+    vertical-align: middle;
+    padding-right: 10px;
+}
+#main-content .right{
+    float: left;
+    width: 693px;
+}
+
+#main-content .left ul{
+    width: 100%;
+    list-style: none;
+    padding-left: 1px;
+}
+#main-content .left li{
+    height: 42px;
+    border-bottom: 1px #9d9c9c solid;
+    line-height: 42px;
+    color: #444445;
+    font-size: 16px;
+    padding-left: 31px;
+}
+#footer{
+    border-top: 1px #28CB8A solid;
+    font-size: 12px;
+    width: 970px;
+    margin: 20px auto 0 auto;
+}
+#footer p{
+    padding-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*!
+ * lhgcore Calendar Plugin StyleSheet
+ * Copyright (c) 2009 - 2012 By Li Hui Gang
+ */
+
+.lcui_border{ font:12px/1.333 tahoma,arial,\5b8b\4f53,sans-serif;background-color:#fff; }
+
+.lcui_lt,.lcui_rt,.lcui_lb,.lcui_rb,.lcui_l,.lcui_r,.cui_py,.cui_ny,.cui_pm,.cui_nm{ width:3px;background:url(defau../img/default_s.gif) no-repeat; }
+
+.lcui_lt,.lcui_rt{ height:10px; }
+.lcui_lt{ background-position:-65px 0; }
+.lcui_rt{ background-position:-69px 0; }
+.lcui_lb,.lcui_rb{ height:3px; }
+.lcui_lb{ background-position:-65px -11px; }
+.lcui_rb{ background-position:-69px -11px; }
+
+.lcui_l,.lcui_r{ background-repeat:repeat-y; }
+.lcui_l{ background-position:-73px 0; }
+.lcui_r{ background-position:-77px 0; }
+
+.lcui_t,.lcui_b{ background:url(../img/default/default_s2.gif) repeat-x;font-size:0; }
+.lcui_t{ background-position:0 0; }
+.lcui_b{ background-position:0 -10px; }
+
+.lcui_head{ padding:5px 8px 3px; }
+.lcui_body thead{ text-align:center;color:#0597db;font:14px "幼圆",Tahoma,Arial,sans-serif;font-weight:bold;height:18px; }
+
+.cui_py{ display:block;width:9px;height:16px;background-position:-25px 0; }
+.cui_ny{ display:block;width:9px;height:16px;background-position:-35px 0; }
+.cui_iy{ width:40px;margin:0;padding:0;border:1px solid #eee;height:14px;font:12px tahoma,arial;cursor:pointer;text-align:center;_vertical-align:middle;margin-right:2px; }
+
+.cui_pm{ display:block;width:9px;height:16px;background-position:-45px 0; }
+.cui_nm{ display:block;width:9px;height:16px;background-position:-55px 0; }
+.cui_im{ width:20px;margin:0;padding:0;border:1px solid #eee;height:14px;font:12px tahoma,arial;cursor:pointer;text-align:center;_vertical-align:middle;margin-right:2px; }
+
+.cui_db td{ background-color:#f7f7f7;color:#999;font:11px verdana,arial,sans-serif;cursor:default;height:20px;width:24px;text-align:center; }
+.cui_db a{ color:#000;text-decoration:none;display:block;height:20px;line-height:20px;width:24px;cursor:default; }
+.cui_db a:hover,.cui_today{ background:#f3f3f3 url(../img/default/default_s.gif) no-repeat;background-position:0 0; }
+
+.cui_foot{ padding:2px 0 1px 0;_padding:1px 0 0; }
+.lcui_today,.lcui_empty{ width:44px; }
+.cui_tbtn,.cui_dbtn{ display:block;border:1px solid #999;color:#000;text-decoration:none;background-color:#f2f2f2;width:38px;height:17px;line-height:17px;line-height:20px\0; }
+.cui_tbtn:hover,.cui_dbtn:hover{ border:1px solid #0a246a;background-color:#c2cbe0; }
+.lcui_time input{margin:0;padding:0;border:1px solid #999;width:20px;height:17px;font:11px Verdana,Arial;text-align:center;background-color:#f2f2f2;line-height:17px;}
+
+.cui_ymlist{ position:absolute;border:1px solid #0093d1;background-color:#fff;width:120px; }
+.cui_lbox a{ display:block;padding:3px 0;background:#f7f7f7;text-decoration:none;cursor:default;color:#000;text-align:center;font:11px verdana,arial,sans-serif; }
+.cui_lbox a:hover{ background:#3991d1;color:#fff; }
+
+.cui_ybar{ background-color:#f7f7f7; }
+.cui_ybar a{ display:block;text-decoration:none;text-align:center;color:#000; }

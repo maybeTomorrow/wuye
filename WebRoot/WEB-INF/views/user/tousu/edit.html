@@ -1,0 +1,52 @@
+<#include "/layout/user-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>编辑投诉</h2>
+
+                <div id="intro">
+                    <form class="form-inline" role="form" method="post" id="edit_form" action="user/tousu/update">
+                    <input  type="hidden" name="tousu.id" value="${tousu.id}"  >
+                    <div class="form-group">
+                        <label class="" for="iw">编号</label>
+                        <input  type="text" class="form-control" id="iw" placeholder="编号" name="tousu.no" value="${tousu.no}">
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ia">主题</label>
+                        <input  type="text" class="form-control" id="ia" placeholder="主题" name="tousu.title" value="${tousu.title}">
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ic">地址</label>
+                        <input  type="text" class="form-control" id="ic" placeholder="地址" name="tousu.address" value="${tousu.address}">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="" for="id">发生时间</label>
+                        <input  type="text" class="form-control picker" id="id" placeholder="发生时间" name="tousu.date" value="${tousu.date}">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="" for="if">联系人</label>
+                        <input  type="text" class="form-control" id="if" placeholder="联系人" name="tousu.contact" value="${tousu.contact}">
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ih">联系方式</label>
+                        <input  type="text" class="form-control" id="ih" placeholder="联系方式" name="tousu.phone" value="${tousu.phone}">
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ii">备注</label>
+                        <input  type="text" class="form-control" id="ii" placeholder="备注" name="tousu.remark" value="${tousu.remark}">
+                    </div>
+                    <button type="button" id="update" class="btn btn-success">保存</button>
+                        </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#update").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/user-footer.html" >

@@ -1,0 +1,80 @@
+<#include "/layout/user-header.html" >
+<div id="main-content">
+    <#include "left-nav.html">
+    <div class="right">
+        <h2><img src="img/title-style.png"/>车位管理</h2>
+
+        <div id="intro">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>车位地址</th>
+                    <th>住户姓名</th>
+                    <th>使用期限</th>
+                    <th>是否空缺</th>
+                    <th>是否缴费</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td colspan="4">
+                        第<select style="width: 80px;" class="form-group" id="page-select">
+                    </select> 页，共<span class="cewei.totalRow">${cewei.totalRow?if_exists}</span>条记录
+                   <script>setPager('${cewei.pageNumber?if_exists}','${cewei.totalPage?if_exists}');</script>
+                    </td>
+
+                </tr>
+                </tfoot>
+                <tbody>
+                <#list cewei.list as cewei>
+                <tr>
+                    <td>${cewei.no?if_exists}</td>
+                    <td>${cewei.address?if_exists}</td>
+                    <td>${cewei.name?if_exists}</td>
+                    <td>${cewei.time?if_exists}</td>
+                    <td>${cewei.kong?if_exists}</td>
+                    <td>${cewei.cost?if_exists}</td>
+                    <td data="${cewei.id}">
+                        <button type="button" class="btn btn-success btn_view">查看</button>
+
+                    </td>
+                </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br class="clear"/>
+
+</div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">查看</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;">
+                    <iframe id="frame_modal" src="" style="width: 100%;height:100%;">
+                        </iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <script>
+        $(".btn_view").click(function(){
+            $("#frame_modal").attr("src","user/cewei/view/"+$(this).parent().attr("data"));
+            $('#myModal').modal('show');
+        });
+    </script>
+        <#include "/layout/user-footer.html" >

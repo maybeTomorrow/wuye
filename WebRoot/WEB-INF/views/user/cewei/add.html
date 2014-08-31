@@ -1,0 +1,51 @@
+<#include "/layout/user-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>添加车位</h2>
+
+                <div id="intro">
+                    <form class="form-inline" role="form" method="post" id="edit_form" action="user/cewei/create">
+                        <div class="form-group">
+                            <label class="" for="iw">编号</label>
+                            <input type="text" class="form-control" id="iw" placeholder="编号" name="cewei.no">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ia">地址</label>
+                            <input type="text" class="form-control" id="ia" placeholder="地址" name="cewei.address">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ic">住户编号</label>
+                            <input type="text" class="form-control" id="ic" placeholder="住户编号" name="cewei.zhuhu_no">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="" for="id">住户姓名</label>
+                            <input type="text" class="form-control" id="id" placeholder="住户姓名" name="cewei.name">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ie">使用期限</label>
+                            <input type="text" class="form-control" id="ie" placeholder="使用期限" name="cewei.time">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="if">是否空缺</label>
+                            <input type="text" class="form-control" id="if" placeholder="是否空缺" name="cewei.kong">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ih">是否缴费</label>
+                            <input type="text" class="form-control" id="ih" placeholder="是否缴费" name="cewei.cost">
+                        </div>
+
+                        <button type="button" id="add" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#add").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/user-footer.html" >

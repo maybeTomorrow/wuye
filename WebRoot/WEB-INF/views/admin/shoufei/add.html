@@ -1,0 +1,60 @@
+<#include "/layout/admin-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>添加缴费</h2>
+
+                <div id="intro">
+                    <form class="form-control-static" role="form" method="post" id="edit_form" action="admin/shoufei/create">
+                        <div class="form-group">
+                            <label class="" for="iw">业主编号</label>
+                            <input type="text" class="form-control" id="iw" placeholder="编号" name="shoufei.no">
+                        </div>
+                        <div class="form-group">
+                        <label class="" for="ia">业主姓名</label>
+                        <input type="text" class="form-control" id="ia" placeholder="业主姓名" name="shoufei.name">
+                    </div>
+                        <div class="form-group">
+                            <label class="" for="ip">身份证号</label>
+                            <input type="text" class="form-control" id="ip" placeholder="身份证号" name="shoufei.sfzh">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ic">费用项目</label>
+
+                            <select class="form-control" id="ic" name="shoufei.type" >
+                                <option value="水费">水费</option><option value="电费">电费</option><option value="气费">气费</option><option value="卫生费">卫生费</option>
+                                <option value="车位费">车位费</option>
+                                <option value="物业费">物业费</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="" for="id">费用金额</label>
+                            <input type="text" class="form-control" id="id" placeholder="费用金额" name="shoufei.cost">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ie">缴费日期</label>
+                            <input type="text" class="form-control picker" id="ie" placeholder="缴费日期" name="shoufei.date">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="if">状态</label>
+                            <select class="form-control" id="if"  name="shoufei.state">
+                                <option value="已缴">已缴</option>
+                                <option value="未缴">未缴</option>
+                            </select>
+
+                        </div>
+
+                        <button type="button" id="add" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#add").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/admin-footer.html" >

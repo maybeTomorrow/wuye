@@ -1,0 +1,37 @@
+<#include "/layout/ifragment-header.html">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>联系方式</th>
+            <th>工作范围</th>
+            <th>职位</th>
+            <th>绩效考核</th>
+        </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+        <tbody>
+        <#list renshi.list as renshi>
+            <tr>
+                <td>${renshi.no?if_exists}</td>
+                <td>${renshi.name?if_exists}</td>
+                <td>${renshi.phone?if_exists}</td>
+                <td>${renshi.work?if_exists}</td>
+                <td>${renshi.pos?if_exists}</td>
+                <td>${renshi.adper?if_exists}</td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+
+<script>
+    $(document).ready(function(){
+        window.print();
+    });
+</script>
+    </body>
+    </html>

@@ -1,0 +1,60 @@
+<#include "/layout/ifragment-header.html">
+
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>小区名称</th>
+            <th>楼宇名称</th>
+            <th>门牌号</th>
+            <th>单元号</th>
+            <th>房间状态</th>
+            <th>房屋朝向</th>
+            <th>房屋型号</th>
+            <th>建筑面积</th>
+            <th>合同编号</th>
+            <th>合同金额</th>
+            <th>合同日期</th>
+            <th>付款方式</th>
+            <th>业主姓名</th>
+            <th>身份证号</th>
+            <th>联系手机</th>
+            <th>联系电话</th>
+
+        </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+        <tbody>
+        <#list fang.list as fang>
+            <tr>
+                <td>${fang.xqmc?if_exists}</td>
+                <td>${fang.lymc?if_exists}</td>
+                <td>${fang.mph?if_exists}</td>
+                <td>${fang.dyh?if_exists}</td>
+                <td>${fang.fjzt?if_exists}</td>
+                <td>${fang.fwcx?if_exists}</td>
+                <td>${fang.fwxh?if_exists}</td>
+                <td>${fang.jzmj?if_exists}</td>
+                <td>${fang.htbh?if_exists}</td>
+                <td>${fang.htje?if_exists}</td>
+                <td>${fang.htrq?if_exists}</td>
+                <td>${fang.fkfs?if_exists}</td>
+                <td>${fang.yzxm?if_exists}</td>
+                <td>${fang.sfzh?if_exists}</td>
+                <td>${fang.lxsj?if_exists}</td>
+                <td>${fang.lxdh?if_exists}</td>
+
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+
+<script>
+    $(document).ready(function(){
+        window.print();
+    });
+</script>
+    </body>
+    </html>

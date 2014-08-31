@@ -1,0 +1,32 @@
+<#include "/layout/admin-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>添加新闻</h2>
+
+                <div id="intro">
+                    <form class="form-control-static" role="form" method="post" id="edit_form" action="admin/xinwen/create">
+                        <div class="form-group">
+                            <label class="" for="iw">标题</label>
+                            <input type="text" class="form-control" id="iw" placeholder="标题" name="xinwen.title">
+                        </div>
+                       
+                        <div class="form-group">
+                            <label class="" for="ic">正文</label>
+                            <textarea cols="100" rows="10" name="xinwen.content" id="ic"></textarea>
+                        </div>
+
+
+                        <button type="button" id="add" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#add").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/admin-footer.html" >

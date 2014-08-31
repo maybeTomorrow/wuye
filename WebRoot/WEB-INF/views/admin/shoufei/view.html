@@ -1,0 +1,33 @@
+<#include "/layout/ifragment-header.html">
+<div id="intro">
+    <form class="form-inline" role="form" method="post" id="edit_form" action="admin/shoufei/update" >
+        <input readonly="readonly"  type="hidden" name="shoufei.id" value="${shoufei.id}"  >
+        <div class="form-group">
+            <label class="" for="iw">业主编号</label>
+            <input readonly="readonly"  type="text" class="form-control" id="iw" placeholder="编号" name="shoufei.no" value="${shoufei.no}">
+        </div>
+        <div class="form-group">
+            <label class="" for="ia">业主姓名</label>
+            <input readonly="readonly"  type="text" class="form-control" id="ia" placeholder="姓名" name="shoufei.name" value="${shoufei.name}">
+        </div>
+        <div class="form-group">
+            <label class="" for="ic">费用项目</label>
+            <input readonly="readonly"  type="text" class="form-control" id="ic" placeholder="费用项目" name="shoufei.type" value="${shoufei.type}">
+        </div>
+        <div class="form-group">
+            <label class="" for="id">费用金额</label>
+            <input readonly="readonly"  type="text" class="form-control" id="id" placeholder="费用金额" name="shoufei.cost" value="${shoufei.cost}">
+        </div>
+
+        <div class="form-group">
+            <label class="" for="id">缴费日期</label>
+            <input readonly="readonly"  type="text" class="form-control" id="id" placeholder="缴费日期" name="shoufei.date" value="${shoufei.date}">
+        </div>
+        <div class="form-group">
+            <label class="" for="ie">状态</label>
+            <input readonly="readonly"  type="text" class="form-control" id="ie" placeholder="状态" name="shoufei.state" value="${shoufei.state}">
+        </div>
+
+    </form>
+</div>  </body>
+</html>

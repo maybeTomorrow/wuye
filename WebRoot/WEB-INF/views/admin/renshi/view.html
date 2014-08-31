@@ -1,0 +1,41 @@
+<#include "/layout/ifragment-header.html">
+<div id="intro">
+    <form class="form-inline" role="form" method="post" id="edit_form" action="admin/renshi/update">
+        <input readonly="readonly"  type="hidden" name="renshi.id" value="${renshi.id}">
+
+        <div class="form-group">
+            <label class="" for="iw">编号</label>
+            <input readonly="readonly"  type="text" class="form-control" id="iw" placeholder="编号" name="renshi.no"
+                   value="${renshi.no}">
+        </div>
+        <div class="form-group">
+            <label class="" for="ia">姓名</label>
+            <input readonly="readonly"  type="text" class="form-control" id="ia" placeholder="姓名" name="renshi.name"
+                   value="${renshi.name}">
+        </div>
+        <div class="form-group">
+            <label class="" for="ic">联系方式</label>
+            <input readonly="readonly"  type="text" class="form-control" id="ic" placeholder="联系方式" name="renshi.logname"
+                   value="${renshi.phone}">
+        </div>
+        <div class="form-group">
+            <label class="" for="ir">工作范围</label>
+            <input readonly="readonly"  type="text" class="form-control" id="ir" placeholder="工作范围" name="renshi.work"
+                   value="${renshi.work}">
+        </div>
+        <div class="form-group">
+            <label class="" for="id">职位</label>
+            <input readonly="readonly"  type="text" class="form-control" id="id" placeholder="职位" name="renshi.phone"
+                   value="${renshi.pos}">
+        </div>
+        <div class="form-group">
+            <label class="" for="ie">绩效考核</label>
+            <input readonly="readonly"  type="text" class="form-control" id="ie" placeholder="绩效考核" name="renshi.mail"
+                   value="${renshi.adper}">
+        </div>
+
+
+    </form>
+</div>
+</body>
+</html>

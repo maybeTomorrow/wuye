@@ -1,0 +1,161 @@
+<#include "/layout/admin-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>编辑房产销售</h2>
+
+                <div id="intro">
+                    <form class="form-control-static" role="form" method="post" id="edit_form" action="admin/fang/update" >
+                        <input type="hidden" name="fang.id" value="${fang.id}"  >
+                        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="form">
+                            <tbody><tr>
+                                <td colspan="4" align="center">
+                                    ---------------------------<b>基本信息</b>---------------------------
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item" style="width:20%">
+                                    小区名称：
+                                </td>
+                                <td style="width:30%">
+                                    <input name="fang.xqmc" value="${fang.xqmc}" type="text"   class="mytext" style="width:90%;">
+                                </td>
+                                <td class="form-item" style="width:20%">
+                                    楼宇名称：
+                                </td>
+                                <td style="width:30%">
+                                    <input name="fang.lymc" value="${fang.lymc}"  type="text"  id="" class="mytext" style="width:90%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item" style="width:20%">
+                                    门牌号：
+                                </td>
+                                <td style="width:30%">
+                                    <input name="fang.mph" value="${fang.mph}" type="text"  id="" class="mytext" style="width:90%;">
+                                </td>
+                                <td class="form-item" style="width:20%">
+                                    单元号：
+                                </td>
+                                <td style="width:30%">
+                                    <input name="fang.dyh" value="${fang.dyh}" type="text"  id="" class="mytext" style="width:90%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item" style="width:20%">
+                                    房间状态：
+                                </td>
+                                <td style="width:30%" data="${fang.fjzt}">
+                                   <input id="ynSale" type="radio" name="fang.fjzt" value="已售"  ><label for="ynSale">已售</label>
+                                    <input id="ynRent" type="radio" name="fang.fjzt" value="已租" ><label for="ynRent">已租</label>
+                                </td>
+                                <td class="form-item" style="width:20%">
+                                    房屋户型：
+                                </td>
+                                <td style="width:30%">
+                                    <input name="fang.fwxh" value="${fang.fwxh}" type="text"  id="gg" class="mytext" style="width:90%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    房屋朝向：
+                                </td>
+                                <td>
+                                    <input name="fang.fwcx" value="${fang.fwcx}" type="text"  id="cx" class="mytext" style="width:90%;">
+                                </td>
+                                <td class="form-item">
+                                    建筑面积：
+                                </td>
+                                <td>
+                                    <input name="fang.jzmj" value="${fang.jzmj}" type="text"  id="jzmj" class="mytext" style="width:90%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" align="center">
+                                    ---------------------------<b>合同业主</b>---------------------------
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    合同编号：
+                                </td>
+                                <td>
+                                    <input name="fang.htbh" value="${fang.htbh}"  type="text"  id="htno" class="mytext" style="width:90%;"><font color="red">*</font>
+                                </td>
+                                <td class="form-item">
+                                    合同金额：
+                                </td>
+                                <td>
+                                    <input name="fang.htje" value="${fang.htje}"  type="text"  id="htje" class="mytext" style="width:90%;"><font color="red">*</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    合同日期：
+                                </td>
+                                <td>
+                                    <input name="fang.htrq" value="${fang.htrq}" type="text"  id="htrq" class="mytext picker"  style="width:90%;"><font color="red">*</font>
+                                </td>
+                                <td class="form-item">
+                                    付款方式：</td>
+                                <td>
+                                    <select name="fang.fkfs" data="${fang.fkfs}" id="fkfs" class="mytext" style="width:90%;">
+                                        <option selected="selected" value="一次付清">一次付清</option>
+                                        <option value="按揭贷款">按揭贷款</option>
+                                        <option value="分期付款">分期付款</option>
+                                        <option value="其它">其它</option>
+
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    &nbsp;业主姓名：
+                                </td>
+                                <td>
+                                    <input name="fang.yzxm" value="${fang.yzxm}" type="text"  id="yzxm" class="mytext" style="width:90%;"><font color="red">*</font>
+                                </td>
+                                <td class="form-item">
+                                    身份证号：
+                                </td>
+                                <td>
+                                    <input name="fang.sfzh" value="${fang.sfzh}" type="text"  id="sfzh" class="mytext" style="width:90%;"><font color="red">*</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    联系手机：</td>
+                                <td>
+                                    <input name="fang.lxsj" value="${fang.lxsj}" type="text"  id="lxsj" class="mytext" style="width:90%;">
+                                </td>
+                                <td class="form-item">
+                                    联系电话：
+                                </td>
+                                <td>
+                                    <input name="fang.lxdh" value="${fang.lxdh}" type="text"  id="lxdh" class="mytext" style="width:90%;"><font color="red">*</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    备注：
+                                </td>
+                                <td colspan="3">
+                                    <textarea name="fang.bz" rows="3" cols="20" id="bz" class="mytextarea" style="width:96%;">${fang.bz}</textarea>
+                                </td>
+                            </tr>
+
+                            </tbody></table>
+
+                        <button type="button" id="update" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#update").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/admin-footer.html" >

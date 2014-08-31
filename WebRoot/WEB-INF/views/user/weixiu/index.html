@@ -1,0 +1,156 @@
+<#include "/layout/user-header.html" >
+<div id="main-content">
+    <#include "left-nav.html">
+    <div class="right">
+        <h2><img src="img/title-style.png"/>维修管理</h2>
+
+        <div id="intro">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>主题</th>
+                    <th>联系人</th>
+                    <th>联系方式</th>
+                    <th>日期</th>
+                    <th>状态</th>
+                    <th style="width: 200px;">操作</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td colspan="4">
+                        第<select style="width: 80px;" class="form-group" id="page-select">
+                    </select> 页，共<span class="weixiu.totalRow">${weixiu.totalRow?if_exists}</span>条记录
+                   <script>setPager('${weixiu.pageNumber?if_exists}','${weixiu.totalPage?if_exists}');</script>
+                    </td>
+
+                </tr>
+                </tfoot>
+                <tbody>
+                <#list weixiu.list as weixiu>
+                <tr>
+                    <td>${weixiu.no?if_exists}</td>
+                    <td>${weixiu.title?if_exists}</td>
+                    <td>${weixiu.contact?if_exists}</td>
+                    <td>${weixiu.phone?if_exists}</td>
+                    <td>${weixiu.date?if_exists}</td>
+                    <td>${weixiu.state?if_exists}</td>
+                    <td data="${weixiu.id}">
+                        <button type="button" class="btn btn-success btn_view">查看</button>
+                        <button type="button" class="btn btn-success btn_active " active="edit">编辑</button>
+                        <button type="button" class="btn btn-success btn_pf ">评分</button>
+                        <button type="button" class="btn btn-danger  btn_active" active="delete">删除</button>
+
+                    </td>
+                </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br class="clear"/>
+
+</div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">查看</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;">
+                    <iframe id="frame_modal" src="" style="width: 100%;height:100%;">
+                        </iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+
+    <div class="modal fade" id="weixiu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="ModalLabel">维修须知</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;">
+                    <p>本楼盘内所有小区都设维修科。在主任的领导下，为业主提供房屋装修房屋，设施的维修及养护，并经常对楼房、设施设备进行巡视，做好巡检记录，及时满足业主维修要求，竭诚为您服务。请业主们就在以下条款范围内出现维修问题等情况及时进行报修。</p>
+                    <h5> 一、	公用设施范围</h5>
+                    <p>房屋本体外墙面、屋面、楼梯通道外墙面</p>
+                    <p>小区内道路面、人行道</p>
+                    <p>小区内照明楼道灯、广场灯、车库灯、草坪灯、</p>
+                    <p>沟渠池井雨水口、雨水井、污水井</p>
+                    <p>停车场地面、标识牌、消防设施</p>
+                    <p>地下停车场、电梯、公共设施围栏、宣传栏、广播系统</p>
+                    <h5>二、业主报修范围</h5>
+                    <p>房屋维修：屋面、外墙、房屋承重结构、走廊、通道、楼梯</p>
+                    <p>室外照明、室外卫生、屋内管道、屋内排水</p>
+                    <p>屋内供水、供电、煤气，有线电视、通信</p>
+                    <h5>三、报修流程：</h5>
+                    <p>登录楼盘物业管理系统    点击“维修管理”    阅读“维修须知”</p>
+                    <p> 点击“在线维修”，填写详情，提交    </p>
+                    <p>我们承诺接到报修后，3分钟内落实处理措施，在30分钟内落实解决方案，上门维修，维修完工后及时回访。</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+    <div class="modal fade" id="pfModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="">评分</h4>
+                </div>
+                <div class="modal-body" style="height: 200px;">
+                    <form action="" method="get">
+                        <input type="radio" name="pf" value="非常满意" />非常满意
+                        <input type="radio" name="pf" value="满意" />满意
+                        <input type="radio" name="pf" value="一般" />一般
+                        <input type="radio" name="pf" value="不满意" />不满意
+                        <input type="radio" name="pf" value="很差" />很差"
+                        <button class="btn" id="sub_pf" type="button" >提交</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+    <script>
+        $(".btn_view").click(function(){
+            $("#frame_modal").attr("src","user/weixiu/view/"+$(this).parent().attr("data"));
+            $('#myModal').modal('show');
+        });
+        $(".btn_pf").click(function(){
+            $('#pfModal form').attr("src","user/weixiu/change/"+$(this).parent().attr("data"));
+            $('#pfModal').modal('show');
+        });
+        $("#sub_pf").click(function(){
+            post( $('#pfModal form').attr("src"), $('#pfModal form').serialize());
+            $('#pfModal').modal('hide');
+        });
+    </script>
+        <#include "/layout/user-footer.html" >

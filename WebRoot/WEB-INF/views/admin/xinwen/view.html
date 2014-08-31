@@ -1,0 +1,17 @@
+<#include "/layout/ifragment-header.html">
+<div id="intro">
+    <form class="form-inline" role="form" method="post" id="edit_form" action="admin/xinwen/update" >
+        <input readonly="readonly" type="hidden" name="xinwen.id" value="${xinwen.id}"  >
+        <div class="form-group">
+            <label class="" for="iw">标题</label>
+            <input readonly="readonly" type="text" class="form-control" id="iw" placeholder="编号" name="xinwen.title" value="${xinwen.title}">
+        </div>
+        <div class="form-group">
+            <label class="" for="ic">正文</label>
+            <textarea cols="100" rows="10" readonly="readonly" name="xinwen.content" id="ic">${xinwen.content}</textarea>
+        </div>
+
+        <button type="button" id="update" class="btn btn-success">保存</button>
+    </form>
+</div>  </body>
+</html>

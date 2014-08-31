@@ -1,0 +1,46 @@
+<#include "/layout/user-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>添加管理员</h2>
+
+                <div id="intro">
+                    <form class="form-inline" role="form" method="post" id="edit_form" action="user/renshi/create">
+                        <div class="form-group">
+                            <label class="" for="iw">编号</label>
+                            <input type="text" class="form-control" id="iw" placeholder="编号" name="renshi.no">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ia">姓名</label>
+                            <input type="text" class="form-control" id="ia" placeholder="姓名" name="renshi.name">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="id">联系方式</label>
+                            <input type="text" class="form-control" id="id" placeholder="联系方式" name="renshi.phone">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ie">工作范围</label>
+                            <input type="text" class="form-control" id="ie" placeholder="工作范围" name="renshi.work">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="if">职位</label>
+                            <input type="text" class="form-control" id="if" placeholder="职位" name="renshi.pos">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ih">绩效考核</label>
+                            <input type="text" class="form-control" id="ih" placeholder="绩效考核" name="renshi.adper">
+                        </div>
+         
+                        <button type="button" id="add" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#add").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/user-footer.html" >

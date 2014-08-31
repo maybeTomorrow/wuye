@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <base href="http://localhost:8080/" />
+    <link rel="stylesheet" href="css/new.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" SRC="js/bootstrap.js"></script>
+    <script type="text/javascript" SRC="js/admin.js"></script>
+    <script type="text/javascript" src="js/lhgcalendar.min.js"></script>
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <title></title>
+</head>
+<body>
+<input type="hidden" value="${flag}/" id="flag" />
+<input type="hidden" value="${method}/" id="method" />
+<div id="top-bg2">
+    <div id="top-bg">
+        <div id="top-content">
+            <div id="logo"></div>
+            <div id="menu">
+                <span><a href="javascript:void(0)" id="change_password">修改密码</a>|<a href="">帮助手册</a>|<a href="">关于软件</a>|<a href="logout">退出</a> </span>
+            </div>
+            <div id="nav" class="linker">
+                <ul>
+                    <li class="" href="/user/zhuhu/">个人信息管理
+                    </li>
+                    <li class="" href="/user/weixiu/">维修管理
+                        <ul class="lvl2">
+                            <li class="" href="/user/weixiu/xuzhi">维修须知</li>
+                            <li class="" href="/user/weixiu/add">在线维修</li>
+                            <li class="" href="/user/weixiu/">我的维修</li>
+                        </ul></li>
+                    <li class="" href="/user/tousu/">投诉管理
+                        <ul class="lvl2">
+                            <li class="" href="/user/tousu/xuzhi">投诉须知</li>
+                            <li class="" href="/user/tousu/add">在线投诉</li>
+                            <li class="" href="/user/tousu/">我的投诉</li>
+                        </ul></li>
+                    <li class="" href="/user/renshi/">信息查询
+                        <ul class="lvl2">
+                            <li class="" href="/user/renshi/">人事查询</li>
+                            <li class="" href="/user/cewei/">车位查询</li>
+                        </ul></li>
+                    <li class="" href="/user/xinwen/">新闻公告</li>
+
+                    <li class="" href="/user/shoufei/zhang/">收费管理
+                        <ul class="lvl2">
+                            <li class="" href="/user/shoufei/zhang/">缴费清单</li>
+                            <li class="" href="/user/shoufei/?state=未缴">缴费提醒</li>
+                            <li class="" href="/user/shoufei/fenxi/">统计分析</li>
+                        </ul></li>
+                  <!--  <li class="" href="/user/zhuzai/">房产管理</li> -->
+                </ul>
+                <script>
+                    $("#nav li[href='${flag}/']").attr("class","curret");
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

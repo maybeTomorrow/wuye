@@ -1,0 +1,96 @@
+<#include "/layout/admin-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>编辑房产销售</h2>
+
+                <div id="intro">
+                    <form class="form-inline" role="form" method="post" id="edit_form" action="admin/ziliao/update" >
+                        <input type="hidden" name="ziliao.id" value="${ziliao.id}"  >
+                        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="form">
+                            <tbody><tr>
+                                <td class="form-item">
+                                    资料名称：
+                                </td>
+                                <td colspan="5">
+                                    <input name="ziliao.zlmc" value="${ziliao.zlmc}" type="text" id="Zlmc" class="mytext" style="width:90%;"><font color="red">*</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item" style="width:20%">
+                                    资料份数：
+                                </td>
+                                <td>
+                                    <input name="ziliao.zlfs" value="${ziliao.zlfs}" type="text" id="Zlfs" class="mytext" style="width:80px;"><font color="red">*</font>
+                                </td>
+                                <td class="form-item">
+                                    档案号：
+                                </td>
+                                <td>
+                                    <input name="ziliao.dah" value="${ziliao.dah}" type="text" id="Dah" class="mytext" style="width:80px;">
+                                </td>
+                                <td class="form-item">
+                                    资料分类：
+                                </td>
+                                <td>
+                                    <select name="ziliao.zlfl" data="${ziliao.zlfl}" id="Zlfl" class="mytext" style="width:90px;">
+                                        <option  value=""></option>
+                                        <option value="工程图纸类">工程图纸类</option>
+                                        <option value="工程线路类">工程线路类</option>
+                                        <option value="消防设施类">消防设施类</option>
+                                        <option value="其它工程类">其它工程类</option>
+
+                                    </select><font color="red">*</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    资料页数：
+                                </td>
+                                <td>
+                                    <input name="ziliao.zlys" value="${ziliao.zlys}" type="text" id="Zlys" class="mytext" style="width:80px;"><font color="red">*</font>
+                                </td>
+                                <td class="form-item">
+                                    交出人：
+                                </td>
+                                <td>
+                                    <input name="ziliao.jcr" value="${ziliao.jcr}" type="text" id="Jcr" class="mytext" style="width:80px;">
+                                </td>
+                                <td class="form-item">
+                                    接收人：
+                                </td>
+                                <td>
+                                    <input name="ziliao.jsr" value="${ziliao.jsr}" type="text" id="Jsr" class="mytext" style="width:90px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item" style="height: 23px">
+                                    接收日期：
+                                </td>
+                                <td colspan="5" style="height: 23px">
+                                    <input name="ziliao.jsrq" value="${ziliao.jsrq}" type="text" maxlength="10" id="Jsrq" class="picker"  style="width:140px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    备注：
+                                </td>
+                                <td colspan="5">
+                                    <textarea name="ziliao.bz" rows="3" cols="20" id="zlBz" class="mytextarea" style="width:90%;">${ziliao.bz}</textarea>
+                                </td>
+                            </tr>
+                            </tbody></table>
+
+                        <button type="button" id="update" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#update").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/admin-footer.html" >

@@ -1,0 +1,43 @@
+<#include "/layout/ifragment-header.html">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>业主编号</th>
+            <th>主题</th>
+            <th>地址</th>
+            <th>日期</th>
+            <th>联系人</th>
+            <th>联系电话</th>
+            <th>备注</th>
+            <th>状态</th>
+            <th>评分</th>
+        </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+        <tbody>
+        <#list tousu.list as tousu>
+            <tr>
+                <td>${tousu.no?if_exists}</td>
+                <td>${tousu.title?if_exists}</td>
+                <td>${tousu.address?if_exists}</td>
+                <td>${tousu.date?if_exists}</td>
+                <td>${tousu.contact?if_exists}</td>
+                <td>${tousu.phone?if_exists}</td>
+                <td>${tousu.remark?if_exists}</td>
+                <td>${tousu.state?if_exists}</td>
+                <td>${tousu.pf?if_exists}</td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+
+<script>
+    $(document).ready(function(){
+        window.print();
+    });
+</script>
+    </body>
+    </html>

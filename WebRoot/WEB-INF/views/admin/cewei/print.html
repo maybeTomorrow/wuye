@@ -1,0 +1,39 @@
+<#include "/layout/ifragment-header.html">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>地址</th>
+            <th>住户编号</th>
+            <th>住户姓名</th>
+            <th>是否缴费</th>
+            <th>使用期限</th>
+            <th>是否空缺</th>
+        </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+        <tbody>
+        <#list cewei.list as cewei>
+            <tr>
+                <td>${cewei.no?if_exists}</td>
+                <td>${cewei.address?if_exists}</td>
+                <td>${cewei.zhuhu_no?if_exists}</td>
+                <td>${cewei.name?if_exists}</td>
+                <td>${cewei.cost?if_exists}</td>
+                <td>${cewei.time?if_exists}</td>
+                <td>${cewei.kong?if_exists}</td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+
+<script>
+    $(document).ready(function(){
+        window.print();
+    });
+</script>
+    </body>
+    </html>

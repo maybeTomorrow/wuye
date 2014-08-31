@@ -1,0 +1,103 @@
+<#include "/layout/admin-header.html" >
+<div id="main-content">
+    <#include "left-nav.html">
+    <div class="right" >
+        <h2><img src="img/title-style.png"/>维修处理</h2>
+
+        <div id="intro">
+            <form method="get" action="admin/weixiu"class="form-inline" role="form">
+                <div class="form-group">
+                    <label class="sr-only" for="query">搜索</label>
+                    <input type="text" class="form-control" name="query" id="query" placeholder="输入关键词">
+                </div>
+                <button type="submit" class="btn btn-default">查询</button>
+                <button type="button" onclick="(function(){
+                    var url=window.location.href;
+                    if(window.location.href.indexOf('?')==-1)
+                    {
+                       url+='?print=1';
+                    }
+                    else {
+                      url+='&print=1';
+                    }
+                    window.open(url);
+
+                    })();" class="btn">打印</button>
+            </form>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>主题</th>
+                    <th>联系人</th>
+                    <th>联系方式</th>
+                    <th>日期</th>
+                    <th>状态</th>
+                    <th>评分</th>
+                    <th style="width: 200px;">操作</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td colspan="4">
+                        第<select style="width: 80px;" class="form-group" id="page-select">
+                    </select> 页，共<span class="weixiu.totalRow">${weixiu.totalRow?if_exists}</span>条记录
+                   <script>setPager('${weixiu.pageNumber?if_exists}','${weixiu.totalPage?if_exists}');</script>
+                    </td>
+
+                </tr>
+                </tfoot>
+                <tbody>
+                <#list weixiu.list as weixiu>
+                <tr>
+                    <td>${weixiu.no?if_exists}</td>
+                    <td>${weixiu.title?if_exists}</td>
+                    <td>${weixiu.contact?if_exists}</td>
+                    <td>${weixiu.phone?if_exists}</td>
+                    <td>${weixiu.date?if_exists}</td>
+                    <td>${weixiu.state?if_exists}</td>
+                    <td>${weixiu.pf?if_exists}</td>
+                    <td data="${weixiu.id}">
+                        <button type="button" class="btn btn-success btn_view">查看</button>
+                        <button type="button" class="btn btn-success btn_active " active="change">已受理</button>
+                        <button type="button" class="btn btn-danger  btn_active" active="delete">删除</button>
+
+                    </td>
+                </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br class="clear"/>
+
+</div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">查看</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;">
+                    <iframe id="frame_modal" src="" style="width: 100%;height:100%;">
+                        </iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <script>
+        $(".btn_view").click(function(){
+            $("#frame_modal").attr("src","admin/weixiu/view/"+$(this).parent().attr("data"));
+            $('#myModal').modal('show');
+        });
+    </script>
+        <#include "/layout/admin-footer.html" >

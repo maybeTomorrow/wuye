@@ -1,0 +1,151 @@
+<#include "/layout/user-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>编辑住户</h2>
+
+                <div id="intro">
+                    <form class="form-inline" role="form" method="post" id="edit_form" action="user/zhuzai/update" >
+                        <input type="hidden" name="zhuzai.id" value="${zhuzai.id}"  >
+                        <table class="table" width="100%" border="0" align="center" cellpadding="0" cellspacing="0" >
+                            <tbody><tr>
+                                <td class="form-item" style="width:20%">
+                                    所属公司：
+                                </td>
+                                <td style="width:30%">
+                                    <input type="text" value="${zhuzai.gs}" name="zhuzai.gs" />
+                                </td>
+                                <td class="form-item" style="width:20%">
+                                    &nbsp;
+                                </td>
+                                <td style="width:30%">&nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    住宅编码：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.bm" value="${zhuzai.bm}" type="text" maxlength="10" id="lpbm" class="mytext" style="width:90%;">
+                                </td>
+                                <td class="form-item">
+                                    住宅名称：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.mc" value="${zhuzai.mc}" type="text" maxlength="25" id="lpmc" class="mytext" style="width:90%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    占地面积：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.zd" value="${zhuzai.zd}" type="text" maxlength="10" id="zdmj" class="mytext" style="width:80%;">平方米
+                                </td>
+                                <td class="form-item">
+                                    建筑面积：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.jz" value="${zhuzai.jz}" type="text" maxlength="10" id="jzmj" class="mytext" style="width:80%;">平方米
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    绿地面积：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.ld" value="${zhuzai.ld}" type="text" maxlength="10" id="ldmj" class="mytext" style="width:80%;">平方米
+                                </td>
+                                <td class="form-item">
+                                    道路面积：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.dl" value="${zhuzai.dl}" type="text" maxlength="10" id="dlmj" class="mytext" style="width:80%;">平方米
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    楼宇数量：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.ly" value="${zhuzai.ly}" type="text" maxlength="6" id="lysl" class="mytext" style="width:90%;">
+                                </td>
+                                <td class="form-item">
+                                    负责人：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.fzr" value="${zhuzai.fzr}" type="text" maxlength="10" id="fzr" class="mytext" style="width:90%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    住宅地址：
+                                </td>
+                                <td colspan="3">
+                                    <input name="zhuzai.dz" value="${zhuzai.dz}" type="text" id="dz" class="mytext" style="width:96%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="height:25px" align="center">
+                                    <b>---开发商信息---</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    公司名称：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.kgs" value="${zhuzai.kgs}" type="text" maxlength="25" id="gsmc" class="mytext" style="width:90%;">
+                                </td>
+                                <td class="form-item">
+                                    法人代表：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.frdb" value="${zhuzai.frdb}" type="text" maxlength="10" id="frdb" class="mytext" style="width:90%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    联系人：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.lxr" value="${zhuzai.lxr}" type="text" maxlength="10" id="lxr" class="mytext" style="width:90%;">
+                                </td>
+                                <td class="form-item">
+                                    联系电话：
+                                </td>
+                                <td>
+                                    <input name="zhuzai.lxdh" value="${zhuzai.lxdh}" type="text" maxlength="15" id="lxdh" class="mytext" style="width:90%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    联系地址：
+                                </td>
+                                <td colspan="3">
+                                    <input name="zhuzai.lxdz" value="${zhuzai.lxdz}" type="text" maxlength="55" id="lxdz" class="mytext" style="width:96%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="form-item">
+                                    备注：
+                                </td>
+                                <td colspan="3">
+                                    <textarea name="zhuzai.bz"  rows="3" cols="20" id="bz" class="mytextarea" style="width:96%;">${zhuzai.bz?if_exists}</textarea>
+                                </td>
+                            </tr>
+                            </tbody></table>
+
+                        <button type="button" id="update" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#update").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/user-footer.html" >

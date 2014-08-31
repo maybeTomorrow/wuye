@@ -1,0 +1,47 @@
+<#include "/layout/user-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>添加缴费</h2>
+
+                <div id="intro">
+                    <form class="form-inline" role="form" method="post" id="edit_form" action="user/shoufei/create">
+                        <div class="form-group">
+                            <label class="" for="iw">业主编号</label>
+                            <input type="text" class="form-control" id="iw" placeholder="编号" name="shoufei.no">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ia">业主姓名</label>
+                            <input type="text" class="form-control" id="ia" placeholder="姓名" name="shoufei.name">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ic">费用项目</label>
+                            <input type="text" class="form-control" id="ic" placeholder="费用项目" name="shoufei.type">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="" for="id">费用金额</label>
+                            <input type="text" class="form-control" id="id" placeholder="费用金额" name="shoufei.cost">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ie">缴费日期</label>
+                            <input type="text" class="form-control picker" id="ie" placeholder="缴费日期" name="shoufei.date">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="if">状态</label>
+                            <input type="text" class="form-control" id="if" placeholder="状态" name="shoufei.state">
+                        </div>
+
+                        <button type="button" id="add" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#add").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/user-footer.html" >

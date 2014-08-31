@@ -1,0 +1,252 @@
+<#include "/layout/user-header.html" >
+<div id="main-content">
+    <#include "left-nav.html">
+    <div class="right">
+        <h2><img src="img/title-style.png"/>缴费清单</h2>
+        <div id="intro">
+            <button type="button" class="btn" data-toggle="modal" data-target="#myModal2">缴费比例统计分析</button>
+            <button type="button" class="btn" data-toggle="modal" data-target="#myModal3">收费项目统计分析</button>
+            <form class="form-inline" role="form" action="user/shoufei/zhang" method="get">
+                <div class="form-group">
+
+                    <label class="" for="">状态</label>
+
+                    <select class="select" name="state" id="" data="${state?if_exists}">
+                        <option value="">全部</option>
+                        <option value="已缴">已缴</option>
+                        <option value="未缴">未缴</option>
+                    </select>
+                    <label class="" for="">类型</label>
+                    <select class="select" name="type" id="" data="${type?if_exists}">
+                        <option value="">全部</option>
+                        <option value="水费">水费</option><option value="电费">电费</option><option value="气费">气费</option><option value="卫生费">卫生费</option>
+                        <option value="车位费">车位费</option>
+                        <option value="物业费">物业费</option>
+                    </select>
+                    <label class="" for="">起始日期</label>
+                    <input name="date_b" type="text" class="picker" value="${date_b?if_exists}" />
+                    <label class="" for="">终止日期</label>
+                    <input name="date_e" type="text" class="picker" value="${date_e?if_exists}"/>
+                    <button type="submit" class="btn">查询</button><button type="button" onclick="(function(){
+                    var url=window.location.href;
+                    if(window.location.href.indexOf('?')==-1)
+                    {
+                       url+='?print=1';
+                    }
+                    else {
+                      url+='&print=1';
+                    }
+                    window.open(url);
+
+                    })();" class="btn">打印</button>
+
+                </div>
+
+            </form>
+
+
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>业主编号</th>
+                    <th>业主姓名</th>
+                    <th>费用项目</th>
+                    <th>金额</th>
+                    <th>日期</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td colspan="4">
+                        第<select style="width: 80px;" class="form-group" id="page-select">
+                    </select> 页，共<span class="shoufei.totalRow">${shoufei.totalRow?if_exists}</span>条记录
+                   <script>setPager('${shoufei.pageNumber?if_exists}','${shoufei.totalPage?if_exists}');</script>
+                        <span>共${result.count}元</span>
+                    </td>
+
+                </tr>
+                </tfoot>
+                <tbody>
+                <#list shoufei.list as shoufei>
+                <tr>
+                    <td>${shoufei.no?if_exists}</td>
+                    <td>${shoufei.name?if_exists}</td>
+                    <td>${shoufei.type?if_exists}</td>
+                    <td>${shoufei.cost?if_exists}</td>
+                    <td>${shoufei.date?if_exists}</td>
+                    <td>${shoufei.state?if_exists}</td>
+                    <td data="${shoufei.id}">
+                        <button type="button" class="btn btn-success btn_view">查看</button>
+
+
+                    </td>
+                </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br class="clear"/>
+
+</div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">查看</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;">
+                    <iframe id="frame_modal" src="" style="width: 100%;height:100%;">
+                        </iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+
+    <div class="modal fade" id="myModal2"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 800px;">
+            <div class="modal-content" style="width: 800px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="">缴费比例统计分析</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;width: 800px;">
+                    <div id="bzt"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+<div class="modal fade" id="myModal3"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 800px;">
+        <div class="modal-content" style="width: 800px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="">收费项目统计分析</h4>
+            </div>
+            <div class="modal-body" style="height: 600px;width: 800px;">
+                <div id="bzt2"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+    <script>
+
+        $(".btn_view").click(function(){
+
+            $("#frame_modal").attr("src","user/shoufei/view/"+$(this).parent().attr("data"));
+            $('#myModal').modal('show');
+        });
+    </script>
+
+
+    <script>
+        $(function () {
+            $('#bzt').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '缴费扇形图'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.y}(元)</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: '金额',
+                    data: [
+                            <#list tj3 as tj>['${tj.state?if_exists}',${tj.cost?if_exists}]<#if tj_has_next>,</#if></#list>
+
+
+            ]
+        }]
+        });
+        });
+
+
+
+
+
+        $(function () {
+            $('#bzt2').highcharts({
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: '项目扇形图'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.y}(元)</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: '金额',
+                    data: [
+                            <#list tj as tj>['${tj.types?if_exists}',${tj.cost?if_exists}]<#if tj_has_next>,</#if></#list>
+
+
+            ]
+        }]
+        });
+        });
+
+
+    </script>
+
+
+
+        <#include "/layout/user-footer.html" >

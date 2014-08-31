@@ -1,0 +1,59 @@
+<#include "/layout/admin-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>编辑住户</h2>
+
+                <div id="intro">
+                    <form class="form-control-static" role="form" method="post" id="edit_form" action="admin/cewei/update" >
+                        <input type="hidden" name="cewei.id" value="${cewei.id}"  >
+                        <div class="form-group">
+                            <label class="" for="iw">编号</label>
+                            <input type="text" class="form-control" id="iw" placeholder="编号" name="cewei.no" value="${cewei.no}">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ia">地址</label>
+                            <input type="text" class="form-control" id="ia" placeholder="地址" name="cewei.address" value="${cewei.address}">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ic">住户编号</label>
+                            <input type="text" class="form-control" id="ic" placeholder="住户编号" name="cewei.zhuhu_no" value="${cewei.zhuhu_no}">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="" for="id">住户姓名</label>
+                            <input type="text" class="form-control" id="id" placeholder="住户姓名" name="cewei.name" value="${cewei.name}">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ie">使用期限</label>
+                            <input type="text" class="form-control" id="ie" placeholder="使用期限" name="cewei.time" value="${cewei.time}">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="if">是否空缺</label>
+                            <select class="form-control"  id="if"   name="cewei.kong">
+                                <option value="是">是</option>
+                                <option value="否">否</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ih">是否缴费</label>
+                            <select class="form-control"  id="ih"   name="cewei.cost">
+                                <option value="是">是</option>
+                                <option value="否">否</option>
+                            </select>
+                        </div>
+                        <button type="button" id="update" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#update").click(function(){
+                    subform('#edit_form');
+                });
+                $('#if option[value="${cewei.kong}"]').attr("selected",true);
+                $('#ih option[value="${cewei.cost}"]').attr("selected",true);
+            </script>
+    </div>
+    <#include "/layout/admin-footer.html" >

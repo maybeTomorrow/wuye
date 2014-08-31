@@ -1,0 +1,37 @@
+<#include "/layout/ifragment-header.html">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>业主编号</th>
+            <th>业主姓名</th>
+            <th>费用项目</th>
+            <th>金额</th>
+            <th>日期</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+        <tbody>
+        <#list shoufei.list as shoufei>
+            <tr>
+                <td>${shoufei.no?if_exists}</td>
+                <td>${shoufei.name?if_exists}</td>
+                <td>${shoufei.type?if_exists}</td>
+                <td>${shoufei.cost?if_exists}</td>
+                <td>${shoufei.date?if_exists}</td>
+                <td>${shoufei.state?if_exists}</td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+
+<script>
+    $(document).ready(function(){
+        window.print();
+    });
+</script>
+    </body>
+    </html>

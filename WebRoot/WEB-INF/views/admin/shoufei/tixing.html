@@ -1,0 +1,77 @@
+<#include "/layout/admin-header.html" >
+<div id="main-content">
+
+    <div class="right">
+        <h2><img src="img/title-style.png"/>缴费提醒</h2>
+        <button class="btn" onclick="window.location.href='admin/shoufei/add'">添加</button>
+
+        <div id="intro">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>业主编号</th>
+                    <th>业主姓名</th>
+                    <th>费用项目</th>
+                    <th>金额</th>
+                    <th>日期</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tfoot>
+
+                </tfoot>
+                <tbody>
+                <#list shoufei as shoufei>
+                <tr>
+                    <td>${shoufei.no?if_exists}</td>
+                    <td>${shoufei.name?if_exists}</td>
+                    <td>${shoufei.type?if_exists}</td>
+                    <td>${shoufei.cost?if_exists}</td>
+                    <td>${shoufei.date?if_exists}</td>
+                    <td>${shoufei.state?if_exists}</td>
+                    <td data="${shoufei.id}">
+                        <button type="button" class="btn btn-success btn_view">查看</button>
+                        <button type="button" class="btn btn-success btn_active " active="edit">修改</button>
+                        <button type="button" class="btn btn-danger  btn_active" active="delete">删除</button>
+
+                    </td>
+                </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br class="clear"/>
+
+</div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">查看</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;">
+                    <iframe id="frame_modal" src="" style="width: 100%;height:100%;">
+                        </iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <script>
+        $(".btn_view").click(function(){
+            $("#frame_modal").attr("src","admin/shoufei/view/"+$(this).parent().attr("data"));
+            $('#myModal').modal('show');
+        });
+    </script>
+        <#include "/layout/admin-footer.html" >

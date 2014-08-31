@@ -1,0 +1,117 @@
+<#include "/layout/admin-header.html" >
+<div id="main-content">
+    <#include "left-nav.html">
+    <div class="right">
+        <h2><img src="img/title-style.png"/>收费管理</h2>
+
+        <div id="intro">
+            <button type="button" class="btn" data-toggle="modal" data-target="#myModal1">缴费扇形图</button>
+            <button type="button" class="btn" data-toggle="modal" data-target="#myModal2">项目扇形图</button>
+            <form class="form-inline" role="form">
+                <div class="form-group">
+                    <input type="hidden" value="${state?if_exists}" id="state-select">
+                    <select class="select" id="type-select" data="${type?if_exists}">
+                        <option value="">全部</option>
+                        <option value="水费">水费</option><option value="电费">电费</option><option value="气费">气费</option><option value="卫生费">卫生费</option>
+                        <option value="车位费">车位费</option>
+                        <option value="物业费">物业费</option>
+                    </select>
+                </div>
+
+            </form>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>业主编号</th>
+                    <th>业主姓名</th>
+                    <th>费用项目</th>
+                    <th>金额</th>
+                    <th>日期</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td colspan="4">
+                        第<select style="width: 80px;" class="form-group" id="page-select">
+                    </select> 页，共<span class="shoufei.totalRow">${shoufei.totalRow?if_exists}</span>条记录
+                   <script>setPager('${shoufei.pageNumber?if_exists}','${shoufei.totalPage?if_exists}');</script>
+                    </td>
+
+                </tr>
+                </tfoot>
+                <tbody>
+                <#list shoufei.list as shoufei>
+                <tr>
+                    <td>${shoufei.no?if_exists}</td>
+                    <td>${shoufei.name?if_exists}</td>
+                    <td>${shoufei.type?if_exists}</td>
+                    <td>${shoufei.cost?if_exists}</td>
+                    <td>${shoufei.date?if_exists}</td>
+                    <td>${shoufei.state?if_exists}</td>
+                    <td data="${shoufei.id}">
+                        <button type="button" class="btn btn-success btn_view">查看</button>
+                        <button type="button" class="btn btn-success btn_active " active="edit">修改</button>
+                        <button type="button" class="btn btn-danger  btn_active" active="delete">删除</button>
+
+                    </td>
+                </tr>
+                </#list>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br class="clear"/>
+
+</div>
+
+
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">查看</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;width: 600px;">
+                    <div id="jiaofei"></div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">查看</h4>
+                </div>
+                <div class="modal-body" style="height: 600px;width: 600px;">
+                    <div id="xiangmu"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <script>
+        $(".btn_view").click(function(){
+            $("#frame_modal").attr("src","admin/shoufei/view/"+$(this).parent().attr("data"));
+            $('#myModal').modal('show');
+        });
+    </script>
+        <#include "/layout/admin-footer.html" >

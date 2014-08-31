@@ -1,0 +1,45 @@
+<#include "/layout/ifragment-header.html">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>业主编号</th>
+            <th>主题</th>
+            <th>地址</th>
+            <th>日期</th>
+            <th>空闲日期</th>
+            <th>联系人</th>
+            <th>联系电话</th>
+            <th>备注</th>
+            <th>状态</th>
+            <th>评分</th>
+        </tr>
+        </thead>
+        <tfoot>
+
+        </tfoot>
+        <tbody>
+        <#list weixiu.list as weixiu>
+            <tr>
+                <td>${weixiu.no?if_exists}</td>
+                <td>${weixiu.title?if_exists}</td>
+                <td>${weixiu.address?if_exists}</td>
+                <td>${weixiu.date?if_exists}</td>
+                <td>${weixiu.freedate?if_exists}</td>
+                <td>${weixiu.contact?if_exists}</td>
+                <td>${weixiu.phone?if_exists}</td>
+                <td>${weixiu.remark?if_exists}</td>
+                <td>${weixiu.state?if_exists}</td>
+                <td>${weixiu.pf?if_exists}</td>
+            </tr>
+        </#list>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+            window.print();
+        });
+    </script>
+    </body>
+    </html>

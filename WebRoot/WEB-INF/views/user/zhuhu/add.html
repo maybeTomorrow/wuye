@@ -1,0 +1,62 @@
+<#include "/layout/user-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>添加住户</h2>
+
+                <div id="intro">
+                    <form class="form-inline" role="form" method="post" id="edit_form" action="user/zhuhu/create">
+                        <div class="form-group">
+                            <label class="" for="iw">编号</label>
+                            <input type="text" class="form-control" id="iw" placeholder="编号" name="zhuhu.no">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ia">姓名</label>
+                            <input type="text" class="form-control" id="ia" placeholder="姓名" name="zhuhu.name">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ic">登录名</label>
+                            <input type="text" class="form-control" id="ic" placeholder="登录名" name="zhuhu.logname">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="" for="id">联系方式</label>
+                            <input type="text" class="form-control" id="id" placeholder="联系方式" name="zhuhu.phone">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ie">住户邮箱</label>
+                            <input type="text" class="form-control" id="ie" placeholder="住户邮箱" name="zhuhu.mail">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="if">工作单位</label>
+                            <input type="text" class="form-control" id="if" placeholder="工作单位" name="zhuhu.work">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ih">小区名称</label>
+                            <input type="text" class="form-control" id="ih" placeholder="小区名称" name="zhuhu.comname">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ii">住户详细地址</label>
+                            <input type="text" class="form-control" id="ii" placeholder="住户详细地址" name="zhuhu.add">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ij">迁入日期</label>
+                            <input type="text" class="form-control" id="ij" placeholder="迁入日期" name="zhuhu.indate">
+                        </div>
+                        <div class="form-group">
+                            <label class="" for="ik">类型</label>
+                            <input type="text" class="form-control" id="ik" placeholder="类型" name="zhuhu.type">
+                        </div>
+                        <button type="button" id="add" class="btn btn-success">保存</button>
+                    </form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#add").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/user-footer.html" >

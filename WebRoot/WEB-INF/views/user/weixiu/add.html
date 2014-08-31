@@ -1,0 +1,54 @@
+<#include "/layout/user-header.html">
+    <div id="main-content">
+        <#include "left-nav.html">
+
+            <div class="right">
+                <h2><img src="img/title-style.png"/>在线维修</h2>
+
+                <div id="intro">
+                    <form class="form-control-static" role="form" method="post" id="edit_form" action="user/weixiu/create">
+                    <div class="form-group">
+                        <label class="" for="iw">编号</label>
+                        <input  type="text" class="form-control" id="iw" placeholder="编号" name="weixiu.no" >
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ia">主题</label>
+                        <input  type="text" class="form-control" id="ia" placeholder="主题" name="weixiu.title" >
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ic">地址</label>
+                        <input  type="text" class="form-control" id="ic" placeholder="地址" name="weixiu.address" >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="" for="id">发生时间</label>
+                        <input  type="text" class="form-control picker" id="id" placeholder="发生时间" name="weixiu.date">
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ie">空闲时间</label>
+                        <input  type="text" class="form-control picker" id="ie" placeholder="空闲时间" name="weixiu.freedate" >
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="if">联系人</label>
+                        <input  type="text" class="form-control" id="if" placeholder="联系人" name="weixiu.contact" >
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ih">联系方式</label>
+                        <input  type="text" class="form-control" id="ih" placeholder="联系方式" name="weixiu.phone" >
+                    </div>
+                    <div class="form-group">
+                        <label class="" for="ii">备注</label>
+                        <input  type="text" class="form-control" id="ii" placeholder="备注" name="weixiu.remark" >
+                    </div>
+                        <button type="button" id="add" class="btn btn-success">保存</button>
+</form>
+                </div>
+            </div>
+            <br class="clear"/>
+            <script>
+                $("#add").click(function(){
+                    subform('#edit_form');
+                });
+            </script>
+    </div>
+    <#include "/layout/user-footer.html" >
